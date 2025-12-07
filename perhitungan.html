@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Frekuensi Relatif</title>
+
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        margin: 0;
+        padding: 30px;
+        color: #333;
+    }
+
+    .card {
+        background: #ffffff;
+        max-width: 450px;
+        margin: auto;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #185a9d;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #acd0ff;
+        margin-top: 6px;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+
+    p#output {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: center;
+        background: #daf5ff;
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h3>Hitung Frekuensi Relatif</h3>
+
+    <label>Banyak Kejadian:</label>
+    <input type="number" id="kejadian" oninput="hitungFR()">
+
+    <label>Banyak Percobaan:</label>
+    <input type="number" id="percobaan" oninput="hitungFR()">
+
+    <p id="output">Frekuensi Relatif = ...</p>
+</div>
+
+<script>
+function hitungFR() {
+    let kejadian = parseFloat(document.getElementById("kejadian").value);
+    let percobaan = parseFloat(document.getElementById("percobaan").value);
+
+    if (!percobaan || percobaan === 0 || isNaN(kejadian)) {
+        document.getElementById("output").innerHTML = "Frekuensi Relatif = ...";
+        return;
+    }
+
+    let hasil = kejadian / percobaan;
+    document.getElementById("output").innerHTML =
+        "Frekuensi Relatif = " + hasil.toFixed(2);
+}
+</script>
+
+</body>
+</html>
